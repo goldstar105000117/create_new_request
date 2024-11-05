@@ -8,16 +8,24 @@ interface UrlInput {
   error?: string;
 }
 
-interface CreateRequestMainComponentProps {}
-
-const UrlInputComponent: React.FC<{
+// Component specific props interface
+type UrlInputComponentProps = {
   number: number;
   value: string;
   error?: string;
   onChange: (value: string) => void;
   onDelete?: () => void;
   showDelete?: boolean;
-}> = ({ number, value, error, onChange, onDelete, showDelete = true }) => {
+};
+
+const UrlInputComponent: React.FC<UrlInputComponentProps> = ({ 
+  number, 
+  value, 
+  error, 
+  onChange, 
+  onDelete, 
+  showDelete = true 
+}) => {
   return (
     <div className="mb-4">
       <label className="block text-sm font-medium text-gray-900 mb-2">
@@ -49,7 +57,7 @@ const UrlInputComponent: React.FC<{
   );
 };
 
-export function CreateRequestMainComponent(props: CreateRequestMainComponentProps) {
+export function CreateRequestMainComponent() {
   const [inputs, setInputs] = useState<UrlInput[]>([{ id: 1, url: '' }]);
 
   const validateUrl = (url: string): string | undefined => {
