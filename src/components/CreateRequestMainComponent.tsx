@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Button, TextInput } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { HiPlus, HiX } from "react-icons/hi";
 
 interface UrlInput {
